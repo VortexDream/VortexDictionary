@@ -21,4 +21,8 @@
         android:id="@+id/newWordFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.newword.NewWordFragment"
         android:label="Add new word" />
+    <fragment
+        android:id="@+id/wordListFragment"
+        android:name="com.vortex.android.vortexdictionary.fragments.wordlist.WordListFragment"
+        android:label="WordListFragment" />
 </navigation>

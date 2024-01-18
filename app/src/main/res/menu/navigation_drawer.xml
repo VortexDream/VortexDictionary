@@ -11,7 +11,7 @@
                 android:title="TEST 1"
                 android:checkable="true"/>
             <item
-                android:id="@+id/dictionary_item"
+                android:id="@+id/wordListFragment"
                 android:icon="@drawable/ic_save"
                 android:title="TEST 2"
                 android:checkable="true"/>
