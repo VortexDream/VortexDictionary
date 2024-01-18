@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.vortex.android.vortexdictionary.databinding.FragmentWordCardBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,11 +40,7 @@ class WordCardFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         observeWord()
-        binding.apply {
-            newWordButton.setOnClickListener {
-                wordCardViewModel.getRandomWord()
-            }
-        }
+        configureUi()
     }
 
     override fun onDestroyView() {
@@ -58,6 +55,17 @@ class WordCardFragment : Fragment() {
                     binding.englishWordTextView.text = word?.englishText
                     binding.russianWordTextView.text = word?.russianText
                 }
+            }
+        }
+    }
+
+    private fun configureUi() {
+        binding.apply {
+            newWordButton.setOnClickListener {
+                wordCardViewModel.getRandomWord()
+            }
+            fab.setOnClickListener {
+                findNavController().navigate(WordCardFragmentDirections.newWord())
             }
         }
     }

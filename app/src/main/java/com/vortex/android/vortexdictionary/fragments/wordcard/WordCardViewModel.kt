@@ -22,7 +22,7 @@ class WordCardViewModel @Inject constructor(
         get() = _currentWord.asStateFlow()
 
     init {
-
+        getRandomWord()
     }
 
     fun getRandomWord() = viewModelScope.launch(Dispatchers.IO) {
