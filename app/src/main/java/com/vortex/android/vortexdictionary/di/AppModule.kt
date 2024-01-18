@@ -37,5 +37,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRepository(databaseDao: WordDao) = WordRepository(databaseDao)
+    fun provideRepository(databaseDao: WordDao): BaseWordRepository {
+        return WordRepository(databaseDao)
+    }
 }

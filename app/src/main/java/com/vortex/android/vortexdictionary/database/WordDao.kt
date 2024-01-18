@@ -16,5 +16,8 @@ interface WordDao {
     suspend fun getWord(word: String): Word
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addCrime(word: Word)
+    suspend fun addWord(word: Word)
+
+    @Query("SELECT * FROM word ORDER BY RANDOM() LIMIT 1")
+    suspend fun getRandomWord(): Word?
 }
