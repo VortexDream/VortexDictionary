@@ -15,7 +15,7 @@ class NewWordViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun addWord(word: Word) = viewModelScope.launch(Dispatchers.IO) {
-
+        repository.addWord(word)
     }
 
 }

@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.vortex.android.vortexdictionary.R
 import com.vortex.android.vortexdictionary.databinding.FragmentNewWordBinding
+import com.vortex.android.vortexdictionary.model.Word
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Date
 
 @AndroidEntryPoint
 class NewWordFragment : Fragment() {
@@ -36,7 +40,29 @@ class NewWordFragment : Fragment() {
 
         binding.apply {
             fab.setOnClickListener {
-
+                val englishWord = englishWordTextField.editText!!.text.toString()
+                val russianWord = russianWordTextField.editText!!.text.toString()
+                if (englishWord.isNotBlank() && russianWord.isNotBlank()) {
+                    englishWordTextField.isErrorEnabled = false
+                    russianWordTextField.isErrorEnabled = false
+                    newWordViewModel.addWord(
+                        Word(
+                            englishText = englishWord,
+                            russianText = russianWord,
+                            date = Date()
+                        )
+                    )
+                    findNavController().popBackStack()
+                } else if (englishWord.isBlank() && russianWord.isBlank()) {
+                    englishWordTextField.error = getString(R.string.no_word_english_error)
+                    russianWordTextField.error = getString(R.string.no_word_russian_error)
+                } else if (englishWord.isBlank()) {
+                    englishWordTextField.error = getString(R.string.no_word_english_error)
+                    russianWordTextField.isErrorEnabled = false
+                } else {
+                    englishWordTextField.isErrorEnabled = false
+                    russianWordTextField.error = getString(R.string.no_word_russian_error)
+                }
             }
         }
     }

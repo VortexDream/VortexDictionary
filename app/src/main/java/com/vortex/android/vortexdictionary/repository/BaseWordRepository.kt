@@ -6,4 +6,6 @@ interface BaseWordRepository {
 
     suspend fun getRandomWord(): Word?
 
+    suspend fun addWord(word: Word)
+
 }

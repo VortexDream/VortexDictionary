@@ -3,4 +3,7 @@
 
     <string name="create_fab_content_desc">Add new word</string>
     <string name="save_fab_content_desc">Save word</string>
+
+    <string name="no_word_english_error">Please enter the word</string>
+    <string name="no_word_russian_error">Please enter the word\'s translation</string>
 </resources>
