@@ -6,4 +6,11 @@
 
     <string name="no_word_english_error">Please enter the word</string>
     <string name="no_word_russian_error">Please enter the word\'s translation</string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">Android Studio</string>
 </resources>
