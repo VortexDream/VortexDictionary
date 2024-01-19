@@ -52,6 +52,8 @@ class NewWordFragment : Fragment() {
                             date = Date()
                         )
                     )
+                    newWordViewModel.wordCounter++
+                    newWordViewModel.setWordCounter()
                     findNavController().popBackStack()
                 } else if (englishWord.isBlank() && russianWord.isBlank()) {
                     englishWordTextField.error = getString(R.string.no_word_english_error)

@@ -1,5 +1,6 @@
 package com.vortex.android.vortexdictionary.fragments.wordcard
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vortex.android.vortexdictionary.model.Word
@@ -25,10 +26,12 @@ class WordCardViewModel @Inject constructor(
         get() = _currentWord.asStateFlow()
 
     var translationCounter = 0
+    var wordCounter = 0
     var isTranslationVisible: Boolean = false
 
     init {
         getRandomWord()
+        getWordCounter()
         getTranslationCounter()
     }
 
@@ -46,6 +49,13 @@ class WordCardViewModel @Inject constructor(
 
     fun setTranslationCounter() = viewModelScope.launch {
         preferences.setTranslationsViewedCounter(translationCounter)
+    }
+
+    private fun getWordCounter() = viewModelScope.launch {
+        preferences.wordsAddedCounter.collectLatest {
+            wordCounter = it
+            Log.d("1", it.toString())
+        }
     }
 
 }

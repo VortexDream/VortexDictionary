@@ -77,7 +77,11 @@ class WordCardFragment: Fragment() {
                 wordCardViewModel.getRandomWord()
             }
             fab.setOnClickListener {
-                findNavController().navigate(WordCardFragmentDirections.newWord())
+                if (wordCardViewModel.wordCounter < 5) {
+                    findNavController().navigate(WordCardFragmentDirections.newWord())
+                } else {
+                    findNavController().navigate(WordCardFragmentDirections.popupSubscription())
+                }
             }
             translateButton.setOnClickListener {
                 if (!wordCardViewModel.isTranslationVisible && wordCardViewModel.translationCounter < 5) {
