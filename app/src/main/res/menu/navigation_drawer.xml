@@ -7,18 +7,18 @@
         <menu>
             <item
                 android:id="@+id/wordCardFragment"
-                android:icon="@drawable/ic_add"
-                android:title="TEST 1"
+                android:icon="@drawable/ic_cards"
+                android:title="@string/card_item"
                 android:checkable="true"/>
             <item
                 android:id="@+id/wordListFragment"
-                android:icon="@drawable/ic_save"
-                android:title="TEST 2"
+                android:icon="@drawable/ic_dictionary"
+                android:title="@string/dictionary_item"
                 android:checkable="true"/>
             <item
-                android:id="@+id/settings_item"
-                android:icon="@drawable/ic_add"
-                android:title="TEST 3"
+                android:id="@+id/settingsFragment"
+                android:icon="@drawable/ic_settings"
+                android:title="@string/settings_item"
                 android:checkable="true"/>
         </menu>
     </item>
