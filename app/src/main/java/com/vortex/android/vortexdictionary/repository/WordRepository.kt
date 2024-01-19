@@ -14,4 +14,6 @@ class WordRepository @Inject constructor(
 
     override suspend fun getAllWords() = databaseDao.getWords()
 
+    override suspend fun searchDatabase(searchQuery: String) = databaseDao.searchDatabase(searchQuery)
+
 }

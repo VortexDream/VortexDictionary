@@ -11,4 +11,6 @@ interface BaseWordRepository {
 
     suspend fun getAllWords(): Flow<List<Word>>
 
+    suspend fun searchDatabase(searchQuery: String): Flow<List<Word>>
+
 }

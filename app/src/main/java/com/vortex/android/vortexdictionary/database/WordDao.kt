@@ -20,4 +20,7 @@ interface WordDao {
 
     @Query("SELECT * FROM word ORDER BY RANDOM() LIMIT 1")
     suspend fun getRandomWord(): Word?
+
+    @Query("SELECT * FROM word WHERE englishText LIKE :searchQuery OR russianText LIKE :searchQuery")
+    fun searchDatabase(searchQuery: String): Flow<List<Word>>
 }

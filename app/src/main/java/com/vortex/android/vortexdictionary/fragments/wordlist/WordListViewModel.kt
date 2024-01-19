@@ -20,12 +20,14 @@ class WordListViewModel @Inject constructor(
     val wordList : StateFlow<List<Word>>
         get() = _wordList.asStateFlow()
 
-    init {
-        getWordList()
-    }
-
     fun getWordList() = viewModelScope.launch {
         repository.getAllWords().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun searchDatabase(searchQuery: String) = viewModelScope.launch {
+        repository.searchDatabase(searchQuery).collect() {
             _wordList.value = it
         }
     }
