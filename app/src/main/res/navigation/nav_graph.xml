@@ -15,6 +15,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/popup_subscription"
+            app:destination="@id/subscriptionDialogFragment" />
     </fragment>
 
     <fragment
@@ -25,4 +28,8 @@
         android:id="@+id/wordListFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.wordlist.WordListFragment"
         android:label="WordListFragment" />
+    <dialog
+        android:id="@+id/subscriptionDialogFragment"
+        android:name="com.vortex.android.vortexdictionary.fragments.subscription.SubscriptionDialogFragment"
+        android:label="SubscriptionDialogFragment" />
 </navigation>

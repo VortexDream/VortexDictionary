@@ -1,9 +1,15 @@
 package com.vortex.android.vortexdictionary.di
 
 import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.PreferenceDataStoreFactory
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.room.Room
+import com.vortex.android.vortexdictionary.repository.AppPreferences
 import com.vortex.android.vortexdictionary.database.WordDao
 import com.vortex.android.vortexdictionary.database.WordDatabase
+import com.vortex.android.vortexdictionary.repository.BaseAppPreferences
 import com.vortex.android.vortexdictionary.repository.BaseWordRepository
 import com.vortex.android.vortexdictionary.repository.WordRepository
 import dagger.Module
@@ -37,7 +43,25 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideRepository(databaseDao: WordDao): BaseWordRepository {
+    fun provideWordRepository(databaseDao: WordDao): BaseWordRepository {
         return WordRepository(databaseDao)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDataStore(
+        @ApplicationContext appContext: Context
+    ): DataStore<Preferences> {
+        return PreferenceDataStoreFactory.create {
+            appContext.preferencesDataStoreFile("settings")
+        }
+    }
+
+    @Singleton
+    @Provides
+    fun provideAppPreferences(
+        dataStore: DataStore<Preferences>
+    ): BaseAppPreferences {
+        return AppPreferences(dataStore)
     }
 }

@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class WordCardFragment : Fragment() {
+class WordCardFragment: Fragment() {
 
     private var _binding: FragmentWordCardBinding? = null
     private val binding
@@ -66,6 +66,9 @@ class WordCardFragment : Fragment() {
             }
             fab.setOnClickListener {
                 findNavController().navigate(WordCardFragmentDirections.newWord())
+            }
+            subscriptionButton.setOnClickListener {
+                findNavController().navigate(WordCardFragmentDirections.popupSubscription())
             }
         }
     }
