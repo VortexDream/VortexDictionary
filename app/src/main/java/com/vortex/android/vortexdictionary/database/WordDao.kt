@@ -23,4 +23,7 @@ interface WordDao {
 
     @Query("SELECT * FROM word WHERE englishText LIKE :searchQuery OR russianText LIKE :searchQuery")
     fun searchDatabase(searchQuery: String): Flow<List<Word>>
+
+    @Query("DELETE FROM word")
+    fun deleteDatabase()
 }

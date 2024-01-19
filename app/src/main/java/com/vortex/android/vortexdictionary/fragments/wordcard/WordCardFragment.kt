@@ -45,6 +45,7 @@ class WordCardFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        wordCardViewModel.clearCurrentWord()//Без этого слово остается в потоке после очистки БД
         hideTranslation()
         if (wordCardViewModel.isTranslationVisible) {
             showTranslation()

@@ -13,4 +13,6 @@ interface BaseWordRepository {
 
     suspend fun searchDatabase(searchQuery: String): Flow<List<Word>>
 
+    suspend fun deleteDatabase()
+
 }

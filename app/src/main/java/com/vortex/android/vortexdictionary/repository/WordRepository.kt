@@ -16,4 +16,5 @@ class WordRepository @Inject constructor(
 
     override suspend fun searchDatabase(searchQuery: String) = databaseDao.searchDatabase(searchQuery)
 
+    override suspend fun deleteDatabase() = databaseDao.deleteDatabase()
 }

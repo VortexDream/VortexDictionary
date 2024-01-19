@@ -3,14 +3,17 @@ package com.vortex.android.vortexdictionary.fragments.settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.vortex.android.vortexdictionary.repository.BaseAppPreferences
+import com.vortex.android.vortexdictionary.repository.BaseWordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val preferences: BaseAppPreferences
+    private val preferences: BaseAppPreferences,
+    private val repository: BaseWordRepository
 ) : ViewModel() {
 
     var translationCounter = 0
@@ -30,8 +33,8 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    fun setTranslationCounter() = viewModelScope.launch {
-        preferences.setTranslationsViewedCounter(translationCounter)
+    fun setTranslationCounter(counter: Int) = viewModelScope.launch {
+        preferences.setTranslationsViewedCounter(counter)
     }
 
     private fun getWordCounter() = viewModelScope.launch {
@@ -40,8 +43,8 @@ class SettingsViewModel @Inject constructor(
         }
     }
 
-    fun setWordCounter() = viewModelScope.launch {
-        preferences.setWordsAddedCounter(translationCounter)
+    fun setWordCounter(counter: Int) = viewModelScope.launch {
+        preferences.setWordsAddedCounter(counter)
     }
 
     private fun getSubscriptionStatus() = viewModelScope.launch {
@@ -52,5 +55,9 @@ class SettingsViewModel @Inject constructor(
 
     fun setSubscriptionStatus(subscriptionStatus: Boolean) = viewModelScope.launch {
         preferences.setSubscription(subscriptionStatus)
+    }
+
+    fun clearDatabase() = viewModelScope.launch(Dispatchers.IO) {
+        repository.deleteDatabase()
     }
 }

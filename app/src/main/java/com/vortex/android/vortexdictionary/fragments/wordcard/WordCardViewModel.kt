@@ -56,4 +56,7 @@ class WordCardViewModel @Inject constructor(
         }
     }
 
+    fun clearCurrentWord() {
+        _currentWord.value = null
+    }
 }

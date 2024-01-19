@@ -34,6 +34,15 @@ class SettingsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.translateButton.setOnClickListener {
+            settingsViewModel.apply {
+                setSubscriptionStatus(false)
+                setTranslationCounter(0)
+                setWordCounter(0)
+                clearDatabase()
+            }
+        }
     }
 
     override fun onDestroyView() {
