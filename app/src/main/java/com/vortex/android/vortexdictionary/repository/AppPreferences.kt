@@ -31,7 +31,7 @@ class AppPreferences @Inject constructor (
 
     override val translationsViewedCounter: Flow<Int> = dataStore.data.map {
         it[TRANSLATIONS_VIEWED_COUNTER_KEY] ?: 0
-    }.distinctUntilChanged()
+    }
 
     override suspend fun setTranslationsViewedCounter(counter: Int) {
         dataStore.edit {

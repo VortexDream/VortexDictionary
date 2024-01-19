@@ -24,12 +24,13 @@
         android:layout_height="wrap_content"
         android:text="ТЕСТОВОЕ СЛОВО"
         android:textSize="20sp"
+        android:paddingHorizontal="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/english_word_text_view"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/new_word_button"
+        android:id="@+id/random_word_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="СЛУЧАЙНОЕ СЛОВО"
@@ -48,18 +49,7 @@
         app:strokeWidth="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_word_button"/>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/subscription_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ПОДПИСКА"
-        app:cornerRadius="8dp"
-        app:strokeWidth="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/translate_button"/>
+        app:layout_constraintTop_toBottomOf="@id/random_word_button"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
