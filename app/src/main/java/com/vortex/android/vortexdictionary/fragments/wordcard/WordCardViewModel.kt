@@ -26,10 +26,12 @@ class WordCardViewModel @Inject constructor(
 
     var translationCounter = 0
     var wordCounter = 0
+    var hasSubscription = false
     var isTranslationVisible: Boolean = false
 
     init {
         getRandomWord()
+        getSubscriptionStatus()
         getWordCounter()
         getTranslationCounter()
     }
@@ -53,6 +55,12 @@ class WordCardViewModel @Inject constructor(
     private fun getWordCounter() = viewModelScope.launch {
         preferences.wordsAddedCounter.collectLatest {
             wordCounter = it
+        }
+    }
+
+    private fun getSubscriptionStatus() = viewModelScope.launch {
+        preferences.hasSubscription.collectLatest {
+            hasSubscription = it
         }
     }
 

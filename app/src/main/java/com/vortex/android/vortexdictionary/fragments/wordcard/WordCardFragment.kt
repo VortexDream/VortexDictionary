@@ -1,9 +1,14 @@
 package com.vortex.android.vortexdictionary.fragments.wordcard
 
+import android.app.AlarmManager
+import android.content.Context
+import android.content.Intent
 import android.graphics.RenderEffect
 import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +35,6 @@ class WordCardFragment: Fragment() {
 
     private val wordCardViewModel: WordCardViewModel by viewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,13 +49,18 @@ class WordCardFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //wordCardViewModel.clearCurrentWord()//Без этого слово остается в потоке после очистки БД
         hideTranslation()
         if (wordCardViewModel.isTranslationVisible) {
             showTranslation()
         }
         observeWord()
         configureUi()
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        requestPermission()
     }
 
     override fun onDestroyView() {
@@ -78,20 +87,27 @@ class WordCardFragment: Fragment() {
                 wordCardViewModel.getRandomWord()
             }
             addWordFab.setOnClickListener {
-                if (wordCardViewModel.wordCounter < 5) {
+                if (wordCardViewModel.translationCounter < 5
+                            || wordCardViewModel.hasSubscription) {
                     findNavController().navigate(WordCardFragmentDirections.newWord())
                 } else {
                     findNavController().navigate(WordCardFragmentDirections.popupSubscription())
                 }
             }
             translateWordFab.setOnClickListener {
-                if (!wordCardViewModel.isTranslationVisible && wordCardViewModel.translationCounter < 5) {
+                if (!wordCardViewModel.isTranslationVisible
+                    && (wordCardViewModel.translationCounter < 5
+                            || wordCardViewModel.hasSubscription)) {
+
                     showTranslation()
                     wordCardViewModel.translationCounter++
                     wordCardViewModel.setTranslationCounter()
                     wordCardViewModel.isTranslationVisible = true
+
                 } else if (wordCardViewModel.translationCounter >= 5) {
+
                     findNavController().navigate(WordCardFragmentDirections.popupSubscription())
+
                 }
             }
         }
@@ -116,6 +132,16 @@ class WordCardFragment: Fragment() {
             binding.russianWordTextView.setRenderEffect(null)
         } else {
             binding.russianWordTextView.isVisible = true
+        }
+    }
+
+    private fun requestPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (!alarmManager.canScheduleExactAlarms()) {
+                startActivity(Intent(ACTION_REQUEST_SCHEDULE_EXACT_ALARM))
+                Log.d("TEST", "REQ PERM")
+            }
         }
     }
 }
