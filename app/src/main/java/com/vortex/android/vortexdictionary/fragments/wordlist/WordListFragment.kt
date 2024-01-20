@@ -49,6 +49,7 @@ class WordListFragment : Fragment(), MenuProvider, SearchView.OnQueryTextListene
         wordListViewModel.getWordList()
         observeWordList()
         configureUi()
+        configureSorting()
     }
 
     override fun onDestroyView() {
@@ -79,6 +80,8 @@ class WordListFragment : Fragment(), MenuProvider, SearchView.OnQueryTextListene
     override fun onQueryTextChange(query: String?): Boolean {
         query?.let {
             wordListViewModel.searchDatabase("%$it%")
+            binding.radioDate.isChecked = true
+            binding.radioAscended.isChecked = true
         }
         return true
     }
@@ -92,6 +95,67 @@ class WordListFragment : Fragment(), MenuProvider, SearchView.OnQueryTextListene
                     DividerItemDecoration.VERTICAL
                 )
             )
+        }
+    }
+
+    private fun configureSorting() {
+        binding.apply { 
+            radioDate.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    if (binding.radioAscended.isChecked) {
+                        wordListViewModel.getItemsSortedByDateAscended()
+                    }
+                    if (binding.radioDescended.isChecked) {
+                        wordListViewModel.getItemsSortedByDateDescended()
+                    }
+                }
+            }
+            radioLatin.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    if (binding.radioAscended.isChecked) {
+                        wordListViewModel.getItemsSortedByLatinAscended()
+                    }
+                    if (binding.radioDescended.isChecked) {
+                        wordListViewModel.getItemsSortedByLatinDescended()
+                    }
+                }
+            }
+            radioCyrillic.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    if (binding.radioAscended.isChecked) {
+                        wordListViewModel.getItemsSortedByCyrillicAscended()
+                    }
+                    if (binding.radioDescended.isChecked) {
+                        wordListViewModel.getItemsSortedByCyrillicDescended()
+                    }
+                }
+            }
+            radioAscended.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    if (binding.radioDate.isChecked) {
+                        wordListViewModel.getItemsSortedByDateAscended()
+                    }
+                    if (binding.radioLatin.isChecked) {
+                        wordListViewModel.getItemsSortedByLatinAscended()
+                    }
+                    if (binding.radioCyrillic.isChecked) {
+                        wordListViewModel.getItemsSortedByCyrillicAscended()
+                    }
+                }
+            }
+            radioDescended.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    if (binding.radioDate.isChecked) {
+                        wordListViewModel.getItemsSortedByDateDescended()
+                    }
+                    if (binding.radioLatin.isChecked) {
+                        wordListViewModel.getItemsSortedByLatinDescended()
+                    }
+                    if (binding.radioCyrillic.isChecked) {
+                        wordListViewModel.getItemsSortedByCyrillicDescended()
+                    }
+                }
+            }
         }
     }
 

@@ -31,4 +31,12 @@
 
     <string name="input_hint_english">Введите слово на английском</string>
     <string name="input_hint_russian">Введите слово на русском</string>
+
+    <string name="sort_by">Сортировка</string>
+    <string name="list_sort">Список</string>
+    <string name="sort_by_date">Дата добавления</string>
+    <string name="sort_by_russian">Кириллица</string>
+    <string name="sort_by_english">Латиница</string>
+    <string name="sort_by_ascended">По возрастанию</string>
+    <string name="sort_by_descended">По убыванию</string>
 </resources>

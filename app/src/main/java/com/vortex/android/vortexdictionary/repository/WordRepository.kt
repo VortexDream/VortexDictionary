@@ -21,4 +21,18 @@ class WordRepository @Inject constructor(
     override fun getSubscriptionPrice(): String {
         return "5$/Месяц"
     }
+
+    //Сортировка
+
+    override fun getItemsSortedByDateAscended() = databaseDao.getItemsSortedByDateAscended()
+
+    override fun getItemsSortedByDateDescended() = databaseDao.getItemsSortedByDateDescended()
+
+    override fun getItemsSortedByLatinAscended() = databaseDao.getItemsSortedByLatinAscended()
+
+    override fun getItemsSortedByLatinDescended() = databaseDao.getItemsSortedByLatinDescended()
+
+    override fun getItemsSortedByCyrillicAscended() = databaseDao.getItemsSortedByCyrillicAscended()
+
+    override fun getItemsSortedByCyrillicDescended() = databaseDao.getItemsSortedByCyrillicDescended()
 }

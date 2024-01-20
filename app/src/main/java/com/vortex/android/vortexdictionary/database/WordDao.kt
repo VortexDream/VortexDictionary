@@ -26,4 +26,24 @@ interface WordDao {
 
     @Query("DELETE FROM word")
     fun deleteDatabase()
+
+    //Sorting
+
+    @Query("SELECT * FROM word ORDER BY date ASC")
+    fun getItemsSortedByDateAscended(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word ORDER BY date DESC")
+    fun getItemsSortedByDateDescended(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word ORDER BY englishText ASC")
+    fun getItemsSortedByLatinAscended(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word ORDER BY englishText DESC")
+    fun getItemsSortedByLatinDescended(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word ORDER BY russianText ASC")
+    fun getItemsSortedByCyrillicAscended(): Flow<List<Word>>
+
+    @Query("SELECT * FROM word ORDER BY russianText DESC")
+    fun getItemsSortedByCyrillicDescended(): Flow<List<Word>>
 }

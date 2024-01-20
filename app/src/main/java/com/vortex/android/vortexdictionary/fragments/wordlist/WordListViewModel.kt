@@ -17,7 +17,7 @@ class WordListViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _wordList = MutableStateFlow<List<Word>>(emptyList())
-    val wordList : StateFlow<List<Word>>
+    val wordList: StateFlow<List<Word>>
         get() = _wordList.asStateFlow()
 
     fun getWordList() = viewModelScope.launch {
@@ -32,4 +32,41 @@ class WordListViewModel @Inject constructor(
         }
     }
 
+    //Сортировка
+
+    fun getItemsSortedByDateAscended() = viewModelScope.launch {
+        repository.getItemsSortedByDateAscended().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun getItemsSortedByDateDescended() = viewModelScope.launch {
+        repository.getItemsSortedByDateDescended().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun getItemsSortedByLatinAscended() = viewModelScope.launch {
+        repository.getItemsSortedByLatinAscended().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun getItemsSortedByLatinDescended() = viewModelScope.launch {
+        repository.getItemsSortedByLatinDescended().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun getItemsSortedByCyrillicAscended() = viewModelScope.launch {
+        repository.getItemsSortedByCyrillicAscended().collect() {
+            _wordList.value = it
+        }
+    }
+
+    fun getItemsSortedByCyrillicDescended() = viewModelScope.launch {
+        repository.getItemsSortedByCyrillicDescended().collect() {
+            _wordList.value = it
+        }
+    }
 }

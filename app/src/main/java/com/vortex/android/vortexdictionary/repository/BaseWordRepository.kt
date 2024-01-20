@@ -16,4 +16,18 @@ interface BaseWordRepository {
     suspend fun deleteDatabase()
 
     fun getSubscriptionPrice(): String
+
+    //Сортировка
+
+    fun getItemsSortedByDateAscended(): Flow<List<Word>>
+
+    fun getItemsSortedByDateDescended(): Flow<List<Word>>
+
+    fun getItemsSortedByLatinAscended(): Flow<List<Word>>
+
+    fun getItemsSortedByLatinDescended(): Flow<List<Word>>
+
+    fun getItemsSortedByCyrillicAscended(): Flow<List<Word>>
+
+    fun getItemsSortedByCyrillicDescended(): Flow<List<Word>>
 }
