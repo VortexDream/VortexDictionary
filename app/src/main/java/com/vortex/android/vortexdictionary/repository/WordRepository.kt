@@ -1,7 +1,7 @@
 package com.vortex.android.vortexdictionary.repository
 
 import com.vortex.android.vortexdictionary.database.WordDao
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 import javax.inject.Inject
 
 class WordRepository @Inject constructor(
@@ -17,4 +17,8 @@ class WordRepository @Inject constructor(
     override suspend fun searchDatabase(searchQuery: String) = databaseDao.searchDatabase(searchQuery)
 
     override suspend fun deleteDatabase() = databaseDao.deleteDatabase()
+
+    override fun getSubscriptionPrice(): String {
+        return "5$/Месяц"
+    }
 }

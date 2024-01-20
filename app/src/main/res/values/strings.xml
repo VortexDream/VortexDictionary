@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">VortexDictionary</string>
 
-    <string name="create_fab_content_desc">Добавить слово</string>
+    <string name="create_fab_content_desc">Добавить новое слово</string>
     <string name="save_fab_content_desc">Сохранить слово</string>
+    <string name="translate_fab_content_desc">Перевести слово</string>
+    <string name="random_fab_content_desc">Случайное слово</string>
 
     <string name="no_word_english_error">Введите слово</string>
     <string name="no_word_russian_error">Введите перевод</string>
@@ -10,9 +12,9 @@
     <string name="nav_open">Открыть</string>
     <string name="nav_close">Закрыть</string>
 
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_subtitle">Изучайте английский просто!</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_title">Словарь Vortex</string>
 
     <string name="search_item">Поиск</string>
 
@@ -21,4 +23,12 @@
     <string name="card_item">Карточки</string>
     <string name="dictionary_item">Словарь</string>
     <string name="settings_item">Настройки</string>
+    <string name="add_new_word_label">Добавить новое слово</string>
+
+    <string name="button_decline_label">Нет, спасибо</string>
+    <string name="button_accept_label">Купить</string>
+    <string name="subscription_description">Откройте возможность неограниченного добавления слов в словарь и просмотра переводов всего за </string>
+
+    <string name="input_hint_english">Введите слово на английском</string>
+    <string name="input_hint_russian">Введите слово на русском</string>
 </resources>

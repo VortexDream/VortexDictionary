@@ -1,6 +1,6 @@
 package com.vortex.android.vortexdictionary.repository
 
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 import kotlinx.coroutines.flow.Flow
 
 interface BaseWordRepository {
@@ -15,4 +15,5 @@ interface BaseWordRepository {
 
     suspend fun deleteDatabase()
 
+    fun getSubscriptionPrice(): String
 }

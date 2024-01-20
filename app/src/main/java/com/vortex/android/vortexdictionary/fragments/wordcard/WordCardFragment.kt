@@ -45,7 +45,7 @@ class WordCardFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        wordCardViewModel.clearCurrentWord()//Без этого слово остается в потоке после очистки БД
+        //wordCardViewModel.clearCurrentWord()//Без этого слово остается в потоке после очистки БД
         hideTranslation()
         if (wordCardViewModel.isTranslationVisible) {
             showTranslation()
@@ -72,19 +72,19 @@ class WordCardFragment: Fragment() {
 
     private fun configureUi() {
         binding.apply {
-            randomWordButton.setOnClickListener {
+            randomWordFab.setOnClickListener {
                 hideTranslation()
                 wordCardViewModel.isTranslationVisible = false
                 wordCardViewModel.getRandomWord()
             }
-            fab.setOnClickListener {
+            addWordFab.setOnClickListener {
                 if (wordCardViewModel.wordCounter < 5) {
                     findNavController().navigate(WordCardFragmentDirections.newWord())
                 } else {
                     findNavController().navigate(WordCardFragmentDirections.popupSubscription())
                 }
             }
-            translateButton.setOnClickListener {
+            translateWordFab.setOnClickListener {
                 if (!wordCardViewModel.isTranslationVisible && wordCardViewModel.translationCounter < 5) {
                     showTranslation()
                     wordCardViewModel.translationCounter++

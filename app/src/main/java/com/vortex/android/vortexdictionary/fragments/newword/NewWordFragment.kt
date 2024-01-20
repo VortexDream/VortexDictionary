@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.vortex.android.vortexdictionary.R
 import com.vortex.android.vortexdictionary.databinding.FragmentNewWordBinding
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
 

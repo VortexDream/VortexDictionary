@@ -40,7 +40,12 @@ class SettingsFragment: Fragment() {
                 setSubscriptionStatus(false)
                 setTranslationCounter(0)
                 setWordCounter(0)
-                clearDatabase()
+                /*try { //Вариант с полной очисткой данных - перезапускает приложение
+                    val runtime = Runtime.getRuntime()
+                    runtime.exec("pm clear com.vortex.android.vortexdictionary")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }*/
             }
         }
     }

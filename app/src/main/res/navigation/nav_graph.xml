@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/wordCardFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.wordcard.WordCardFragment"
-        android:label="Home" >
+        android:label="" >
         <action
             android:id="@+id/new_word"
             app:destination="@id/newWordFragment"
@@ -23,17 +23,17 @@
     <fragment
         android:id="@+id/newWordFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.newword.NewWordFragment"
-        android:label="Add new word" />
+        android:label="@string/add_new_word_label" />
     <fragment
         android:id="@+id/wordListFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.wordlist.WordListFragment"
-        android:label="WordListFragment" />
+        android:label="@string/dictionary_item" />
     <dialog
         android:id="@+id/subscriptionDialogFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.subscription.SubscriptionDialogFragment"
-        android:label="SubscriptionDialogFragment" />
+        android:label="" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.vortex.android.vortexdictionary.fragments.settings.SettingsFragment"
-        android:label="SettingsFragment" />
+        android:label="@string/settings_item" />
 </navigation>

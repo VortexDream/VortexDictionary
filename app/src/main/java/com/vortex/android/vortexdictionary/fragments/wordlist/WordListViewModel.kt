@@ -2,7 +2,7 @@ package com.vortex.android.vortexdictionary.fragments.wordlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 import com.vortex.android.vortexdictionary.repository.BaseWordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

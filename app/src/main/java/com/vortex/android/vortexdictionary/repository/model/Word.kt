@@ -1,4 +1,4 @@
-package com.vortex.android.vortexdictionary.model
+package com.vortex.android.vortexdictionary.repository.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

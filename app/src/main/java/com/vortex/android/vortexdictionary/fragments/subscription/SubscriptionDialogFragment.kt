@@ -10,8 +10,9 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.vortex.android.vortexdictionary.databinding.FragmentSubscriptionBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SubscriptionDialogFragment: DialogFragment() {
 
     private var _binding: FragmentSubscriptionBinding? = null
@@ -51,6 +52,7 @@ class SubscriptionDialogFragment: DialogFragment() {
             declineButton.setOnClickListener {
                 findNavController().popBackStack()
             }
+            price.text = subscriptionViewModel.getSubscriptionPrice()
         }
     }
 }

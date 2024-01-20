@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.vortex.android.vortexdictionary.databinding.ListItemWordBinding
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 
 class WordHolder(
     private val binding: ListItemWordBinding,

@@ -34,7 +34,7 @@ object AppModule {
                 WordDatabase::class.java,
                 DATABASE_NAME
             )
-            //.createFromAsset()
+            .createFromAsset("databases/initial_database.db")
             .build()
 
     @Singleton

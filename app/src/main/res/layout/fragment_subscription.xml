@@ -7,7 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraint_layout"
-        android:layout_width="240dp"
+        android:layout_width="260dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:background="@drawable/dialog_background"
@@ -17,34 +17,57 @@
             android:id="@+id/buy_subscription_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="КУПИТЕ ПЛИЗ"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/accept_button"
+            android:layout_margin="4dp"
+            android:text="@string/subscription_description"
+            android:textSize="16sp"
+            android:paddingHorizontal="8dp"
+            android:gravity="center"
+            android:shadowColor="?attr/colorOutline"
+            android:shadowDx="3.5"
+            android:shadowDy="3.3"
+            android:shadowRadius="1.6"
+            app:layout_constraintBottom_toTopOf="@+id/price"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="10$/Месяц"
+            android:textSize="24sp"
+            android:paddingHorizontal="8dp"
+            android:gravity="fill"
+            android:shadowColor="@color/red"
+            android:shadowDx="3.5"
+            android:shadowDy="3.3"
+            android:shadowRadius="3.2"
+            app:layout_constraintBottom_toTopOf="@+id/accept_button"
+            app:layout_constraintTop_toBottomOf="@id/buy_subscription_text_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/accept_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_margin="8dp"
-            android:text="КУПИТЬ"
+            android:text="@string/button_accept_label"
             app:cornerRadius="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/decline_button"
             app:layout_constraintStart_toStartOf="parent"
-            app:strokeWidth="2dp" />
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/decline_button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:layout_margin="8dp"
-            android:text="НЕ КУПИТЬ"
+            android:text="@string/button_decline_label"
             app:cornerRadius="8dp"
-            app:strokeWidth="2dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/accept_button"
             app:layout_constraintBottom_toBottomOf="parent"/>

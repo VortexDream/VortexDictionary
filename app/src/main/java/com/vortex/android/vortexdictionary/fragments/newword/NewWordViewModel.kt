@@ -2,7 +2,7 @@ package com.vortex.android.vortexdictionary.fragments.newword
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vortex.android.vortexdictionary.model.Word
+import com.vortex.android.vortexdictionary.repository.model.Word
 import com.vortex.android.vortexdictionary.repository.BaseAppPreferences
 import com.vortex.android.vortexdictionary.repository.BaseWordRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
